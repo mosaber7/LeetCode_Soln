@@ -1,0 +1,21 @@
+ public class Solution
+    {
+        public int[] TwoSum(int[] nums, int target)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int j = target - nums[i];
+                if (map.ContainsKey(j))
+                {
+                    return new int[2] {map.GetValueOrDefault(j),i};
+                }
+              else  map[nums[i]]=i;
+
+            }
+           
+           throw new Exception("not found");
+        }
+       
+}
