@@ -1,0 +1,35 @@
+//Naiive solution
+public class Solution {
+    public bool IsPalindrome(int x)
+        {
+            if (x < 0) return false;
+            if (x == 0) return true;
+            string s = x.ToString();
+
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            s = new string(charArray);
+            long temp=Int64.Parse(s);
+            if (x == temp) return true;
+            return false;
+}
+}
+
+// ----------smart solution-----------------
+
+public class Solution {
+    public bool IsPalindrome(int x)
+        {
+            
+            if (x == 0) return true;
+             if (x < 0 || x % 10 == 0) return false;
+            int rev=0;
+            while(x>rev){
+               int poped = x %10;
+                rev=(rev*10)+poped;                
+                x/=10;
+            }
+        if(x==rev||x==(rev/10))return true;
+        return false;
+}
+}
